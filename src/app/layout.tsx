@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/ui/Header";
@@ -59,6 +60,13 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        {/* Cloudflare Web Analytics */}
+        <Script
+          strategy="afterInteractive"
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "96636a7d428d4d6386398c6327e5852a"}'
+        />
       </body>
     </html>
   );
